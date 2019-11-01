@@ -51,61 +51,53 @@ public class Question2_Add2Number {
     System.out.println(solution.addTwoNumbers(x1, y1));
     //System.out.println(solution.mi(10));
   }
-}
 
-class ListNode {
-  int val;
-  public ListNode next;
+  static class ListNode {
+    int val;
+    public ListNode next;
 
-  ListNode(int x) {
-    val = x;
-  }
-}
-
-class Solution {
-  public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-    ListNode x = l1;//获取链表头部
-    ListNode y = l2;//获取链表头部
-    int overFlag = 0;//进位标志
-    ListNode header = new ListNode(0);
-    ListNode curr = header;
-    do {
-      if (null == x) {
-        x = new ListNode(0);//已经到链尾的补0
-      }
-      if (null == y) {
-        y = new ListNode(0);//已经到链尾的补0
-      }
-      int sum = x.val + y.val + overFlag;
-
-      //是否需要进位
-      if (sum > 9) {
-        overFlag = 1;
-      } else {
-        overFlag = 0;
-      }
-
-      curr.next = new ListNode(sum % 10);//计算结果
-      x = x.next;
-      y = y.next;
-      curr = curr.next;
-    } while (x != null || y != null);
-
-    //如果链表最后发生进位，则需要补一位
-    if (overFlag == 1) {
-      curr.next = new ListNode(1);
+    ListNode(int x) {
+      val = x;
     }
-    return header.next;
   }
 
-  public long mi(int x) {
-    long sum = 1;
-    for (int i = 0; i < x; i++) {
-      sum *= 10;
+  static class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+      ListNode x = l1;//获取链表头部
+      ListNode y = l2;//获取链表头部
+      int overFlag = 0;//进位标志
+      ListNode header = new ListNode(0);
+      ListNode curr = header;
+      do {
+        if (null == x) {
+          x = new ListNode(0);//已经到链尾的补0
+        }
+        if (null == y) {
+          y = new ListNode(0);//已经到链尾的补0
+        }
+        int sum = x.val + y.val + overFlag;
+
+        //是否需要进位
+        if (sum > 9) {
+          overFlag = 1;
+        } else {
+          overFlag = 0;
+        }
+
+        curr.next = new ListNode(sum % 10);//计算结果
+        x = x.next;
+        y = y.next;
+        curr = curr.next;
+      } while (x != null || y != null);
+
+      //如果链表最后发生进位，则需要补一位
+      if (overFlag == 1) {
+        curr.next = new ListNode(1);
+      }
+      return header.next;
     }
-    return sum;
   }
-
-
 }
+
+
 
