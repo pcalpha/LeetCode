@@ -34,6 +34,8 @@ public class Question3_NoLoopChar {
     System.out.println(solution.lengthOfLongestSubstring("pwwkew"));
     System.out.println(solution.lengthOfLongestSubstring("c"));
     System.out.println(solution.lengthOfLongestSubstring("au"));
+    System.out.println(solution.lengthOfLongestSubstring(""));
+    System.out.println(solution.lengthOfLongestSubstring(" "));
   }
 
 
@@ -42,12 +44,7 @@ public class Question3_NoLoopChar {
       String str = "";
       String str2 = "";
 
-      if ("".equals(s)) {
-        return 0;
-      }
-      if (" ".equals(s)) {
-        return 1;
-      }
+
       int count = 0;
       //循环表示游标位置
       for (int i = 0; i < s.length(); i++) {
@@ -55,10 +52,10 @@ public class Question3_NoLoopChar {
         for (int j = 1; j <= s.length() - i; j++) {
           str = s.substring(i, i + j);
 
-          if (i + j + 1 > s.length()) {
-            str2 = "";
-          } else {
+          if (i + j + 1 <= s.length()) {
             str2 = s.substring(i + j, i + j + 1);
+          } else {
+            str2 = "";
           }
 
           //System.out.println(str+"::"+str2);
