@@ -100,6 +100,9 @@ public class Q6_ZTransform {
     }
 
 
+    /**
+     * 使用StringBuffer节省使用空格占用的空间
+     */
     static class Solution1 {
         public String convert(String s, int numRows) {
 
